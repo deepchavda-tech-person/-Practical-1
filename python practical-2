@@ -1,0 +1,160 @@
+class Parent:
+    # Parent class
+
+class Child(Parent):
+    # Child class
+  # Parent Class
+class Animal:
+    def sound(self):
+        print("Animals make different sounds.")
+
+# Child Class
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks.")
+
+# Object
+d = Dog()
+
+d.sound()    # Inherited method
+d.bark()
+class A:
+    def display(self):
+        print("Class A")
+
+class B(A):
+    def show(self):
+        print("Class B")
+
+obj = B()
+obj.display()
+obj.show()
+class A:
+    def display(self):
+        print("Class A")
+
+class B:
+    def show(self):
+        print("Class B")
+
+class C(A, B):
+    pass
+
+obj = C()
+obj.display()
+obj.show()
+class Grandparent:
+    def grand(self):
+        print("Grandparent")
+
+class Parent(Grandparent):
+    def parent(self):
+        print("Parent")
+
+class Child(Parent):
+    def child(self):
+        print("Child")
+
+obj = Child()
+
+obj.grand()
+obj.parent()
+obj.child()
+class Parent:
+    def display(self):
+        print("Parent Class")
+
+class Child1(Parent):
+    pass
+
+class Child2(Parent):
+    pass
+
+c1 = Child1()
+c2 = Child2()
+
+c1.display()
+c2.display()
+class Animal:
+    def sound(self):
+        print("Animal Sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog Barks")
+
+class Cat(Animal):
+    def sound(self):
+        print("Cat Meows")
+
+d = Dog()
+c = Cat()
+
+d.sound()
+c.sound()
+class Bird:
+    def fly(self):
+        print("Bird flies")
+
+class Airplane:
+    def fly(self):
+        print("Airplane flies")
+
+def flying_test(obj):
+    obj.fly()
+
+b = Bird()
+a = Airplane()
+
+flying_test(b)
+flying_test(a)
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+      from abc import ABC, abstractmethod
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+obj = Rectangle(10, 5)
+
+print("Area =", obj.area())
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+
+    @abstractmethod
+    def start(self):
+        pass
+
+class Car(Vehicle):
+
+    def start(self):
+        print("Car starts with key")
+
+class Bike(Vehicle):
+
+    def start(self):
+        print("Bike starts with self-start")
+
+c = Car()
+b = Bike()
+
+c.start()
+b.start()
