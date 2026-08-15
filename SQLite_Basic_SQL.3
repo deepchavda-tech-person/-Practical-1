@@ -1,0 +1,70 @@
+import sqlite3
+
+# Connect to SQLite database
+connection = sqlite3.connect("college.db")
+
+# Create cursor
+cursor = connection.cursor()
+
+print("SQLite Database Connected Successfully!")
+
+# Create table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER,
+    course TEXT
+)
+""")
+
+print("Table created successfully!")
+
+# INSERT operation
+cursor.execute(
+    "INSERT INTO students (id, name, age, course) VALUES (?, ?, ?, ?)",
+    (1, "Deep", 18, "Computer Engineering")
+)
+
+connection.commit()
+
+print("Record inserted successfully!")
+
+# SELECT operation
+print("\nStudent Records:")
+
+cursor.execute("SELECT * FROM students")
+
+for row in cursor.fetchall():
+    print(row)
+
+# UPDATE operation
+cursor.execute(
+    "UPDATE students SET age = ? WHERE id = ?",
+    (19, 1)
+)
+
+connection.commit()
+
+print("\nRecord updated successfully!")
+
+# Display updated record
+cursor.execute("SELECT * FROM students WHERE id = ?", (1,))
+
+print("Updated Record:")
+print(cursor.fetchone())
+
+# DELETE operation
+cursor.execute(
+    "DELETE FROM students WHERE id = ?",
+    (1,)
+)
+
+connection.commit()
+
+print("\nRecord deleted successfully!")
+
+# Close connection
+connection.close()
+
+print("Database connection closed.")
